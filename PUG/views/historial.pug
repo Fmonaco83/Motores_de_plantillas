@@ -1,0 +1,18 @@
+extends layout 
+
+block historial 
+    
+    h2(style="color:green") Historial
+    if (personas.length > 0)
+             table(class="table table-dark")
+                    tr(style="color:yellow")
+                      th(Nombre)
+                      th(Apellido)
+                      th(Edad)
+             for  persona of personas
+                    tr
+                        td(persona.nombre)
+                        td(persona.apellido)
+                        td(persona.edad)
+    else 
+        h2 No se encontraron datos

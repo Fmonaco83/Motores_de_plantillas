@@ -1,0 +1,41 @@
+extends layout 
+
+block formulario 
+    h1(style="color: blue") Ingresar Datos 
+
+    br
+
+    form(action="./personas" method="post" name="personas")
+
+    div(class="form-group")
+        label(for="nombre") Nombre
+        input(type="text" placeholder="Ingresar Nombre" id="nombre" name="nombre" class="form-control")
+    div(class="form-goup")
+        label(for="apellido") Apellido 
+        input(type="text" placeholder="Ingresar Apellido" id="apellido" name="apellido" class="form-control")    
+    div(class="form-group")
+        label(for="edad") Edad 
+        input(type="number" placeholder="Ingresar Edad" id="edad" name="edad" class="form-control")
+    button(class="btn btn-primary") enviar    
+
+
+block historial 
+    
+    h2(style="color:green") Historial
+    if personas == ""
+        br
+        h3 No se encontraron datos
+    else     
+        table(class="table table-dark")  
+            thead 
+                 tr(style="color:yellow")
+                    th(Nombre)
+                    th(Apellido)
+                    th(Edad)
+            tbody 
+                each persona of personas
+                    tr
+                        td(persona.nombre)
+                        td(persona.apellido)
+                        td(persona.edad)
+
